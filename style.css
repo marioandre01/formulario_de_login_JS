@@ -1,3 +1,13 @@
+:root {
+    --input-linear: linear-gradient(120deg, #7c34b6, #fc7d16);
+    --button-linear: linear-gradient(120deg, #7c34b6, #fc7d16, #7c34b6);
+    --white: #fff;
+    --black: #303030;
+    --gray: #929292;
+    --light-gray: #cfcfcf;
+    --border-height: 1px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +16,7 @@ body {
 
 .login {
     height: 100vh;
-    background: linear-gradient(120deg, #7c34b6, #fc7d16);
+    background: var(--input-linear);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +25,18 @@ body {
 .login_container {
     min-height: 400px;
     width: 300px;
-    background-color: #fff;
+    background-color: var(--white);
     box-sizing: border-box;
     padding: 32px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.login_title {
+    margin-bottom: 32px;
+    color: var(--black);
 }
 
 .login_form {
@@ -42,31 +57,35 @@ body {
 }
 
 .login_input-border {
-    height: 1px;
+    height: var(--border-height);
     width: 100%;
     margin-bottom: 16px;
-    background-color: #cfcfcf;
+    background-color: var(--light-gray);
     transition: .3s ease-in-out;
 }
 
 .login_input-border::after {
     content: '';
     display: block;
-    height: 1px;
+    height: var(--border-height);
     width: 0;
     margin-bottom: 16px;
-    background: linear-gradient(120deg, #7c34b6, #fc7d16);
+    background: var(--input-linear);
     transition: .3s ease-in-out;
+}
+
+.login_input:focus + .login_input-border::after {
+    width: 100%;
 }
 
 .login_submit {
     height: 48px;
     width: 100%;
     outline: none;
-    background: linear-gradient(120deg, #7c34b6, #fc7d16, #7c34b6);
+    background: var(--button-linear);
     background-size: 200%;
     margin-bottom: 32px;
-    color: #fff;
+    color: var(--white);
     font-size: 16px;
     font-weight: bold;
     border: unset;
@@ -75,8 +94,12 @@ body {
     transition: .5s ease-in-out;
 }
 
+.login_submit:hover {
+    background-position: right;
+}
+
 .login_reset {
     font-size: 12px;
-    color: #929292;
+    color: var(--gray);
     text-decoration: none;
 }
